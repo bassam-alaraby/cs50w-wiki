@@ -1,6 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from markdown2 import Markdown
+from random import choice
 
 from . import util
 
@@ -62,6 +63,7 @@ def add_entry(request):
 
         if title not in util.list_entries():
             util.save_entry(title, content)
+
             return HttpResponseRedirect(f"/wiki/{title}")
         else:
             return render(request, "encyclopedia/add_entry.html", {
@@ -69,3 +71,26 @@ def add_entry(request):
                 "content": content,
                 "error_message": "This title already exist"
             })
+
+
+def edit_entry(request, title):
+    content = util.get_entry(title)
+
+    if request.method == "GET":
+        return render(request, "encyclopedia/edit_entry.html", {
+            "title": title,
+            "content": content
+        })
+
+    if request.method == "POST":
+        content = request.POST.get("content")
+        
+        util.save_entry(title, content)
+
+        return HttpResponseRedirect(f"/wiki/{title}")
+
+
+def random_entry(request):
+    entries = util.list_entries()
+
+    return HttpResponseRedirect(f"/wiki/{choice(entries)}")
