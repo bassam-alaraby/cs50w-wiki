@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from markdown2 import Markdown
 
@@ -7,6 +8,30 @@ from . import util
 def index(request):
     return render(request, "encyclopedia/index.html", {
         "entries": util.list_entries()
+    })
+
+
+def search(request):
+    entries = util.list_entries()
+    query = request.GET.get("q")
+
+    for entry in entries:
+        if query == entry:
+            return HttpResponseRedirect(f"/wiki/{entry}")
+
+    matching_entries = []   
+    for entry in entries:
+        if query in entry:
+            matching_entries.append(entry)
+
+    if matching_entries:
+        return render(request, "encyclopedia/search.html", {
+            "matching_entries": matching_entries
+        })
+
+    return render(request, "encyclopedia/search.html", {
+        "error_message": f'No results found for "{query}"',
+        "entries": entries
     })
 
 
