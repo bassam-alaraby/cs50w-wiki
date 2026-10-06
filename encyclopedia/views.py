@@ -50,3 +50,22 @@ def entry(request, title):
         return render(request, "encyclopedia/error.html", {
             "error_message": "The page you looking for isn't available "
         })
+
+
+def add_entry(request):
+    if request.method == "GET":
+        return render(request, "encyclopedia/add_entry.html")
+
+    if request.method == "POST":
+        title = request.POST.get("title")
+        content = request.POST.get("content")
+
+        if title not in util.list_entries():
+            util.save_entry(title, content)
+            return HttpResponseRedirect(f"/wiki/{title}")
+        else:
+            return render(request, "encyclopedia/add_entry.html", {
+                "title": title,
+                "content": content,
+                "error_message": "This title already exist"
+            })
