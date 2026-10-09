@@ -70,6 +70,12 @@ Install Django:
 pip install django
 ```
 
+Install Markdown to HTML:
+
+```bash
+pip install markdown2
+```
+
 Navigate to the directory containing `manage.py` and run the development server:
 
 ```bash
