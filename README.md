@@ -1,4 +1,4 @@
-# Project 1 — Wiki
+# Wiki
 
 A Wikipedia-like online encyclopedia built with Django as part of Harvard's CS50 Web Programming with Python and JavaScript.
 
@@ -12,6 +12,43 @@ A Wikipedia-like online encyclopedia built with Django as part of Harvard's CS50
 - Display matching entries when a search query partially matches existing titles
 - Navigate to a random encyclopedia entry
 - Custom 404 error page for unavailable entries
+
+## Structure
+
+```bash
+project1-wiki
+├── wiki
+│   ├── __init__.py
+│   ├── asgi.py
+│   ├── asgi.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+│
+├── encyclopedia
+│   ├── migrations/
+│   ├── static/
+│   ├── templates/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   ├── util.py
+│   └── views.py
+│
+├── entries
+│   ├── CSS.md
+│   ├── Django.md
+│   ├── Flask.md
+│   ├── Git.md
+│   ├── HTML.md
+│   └── Python.md
+│
+├── manage.py
+└── README.md
+```
 
 ## Pages
 
@@ -62,7 +99,12 @@ Bootstrap 5 is used for responsive layout and UI components, with additional CSS
 
 ## Running Locally
 
-Clone the repository and navigate to the project directory.
+Clone the repository:
+
+```bash
+git clone https://github.com/bassam-alaraby/cs50w-wiki.git
+cd s50w-wiki
+```
 
 Install Django:
 
@@ -76,7 +118,7 @@ Install Markdown to HTML:
 pip install markdown2
 ```
 
-Navigate to the directory containing `manage.py` and run the development server:
+Run the development server:
 
 ```bash
 python manage.py runserver
