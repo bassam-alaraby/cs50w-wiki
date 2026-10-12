@@ -1,0 +1,8 @@
+{
+  "CSS": "# CSS\n\nCSS is a language that can be used to add style to an [HTML](/wiki/HTML) page.\n",
+  "Django": "# Django\n\nDjango is a web framework written using [Python](/wiki/Python) that allows for the design of web applications that generate [HTML](/wiki/HTML) dynamically.\n",
+  "Flask": "# Flask\n\nFlask is a lightweight web framework for Python.\n\n## Why Flask?\n\n- Simple and flexible\n- Easy to get started\n- Supports extensions\n- Uses Jinja templates\n\n> Flask is often used for small and medium-sized web applications.\n\nLearn more from the [Flask documentation](https://flask.palletsprojects.com/).",
+  "Git": "# Git\n\nGit is a version control tool that can be used to keep track of versions of a software project.\n\n## GitHub\n\nGitHub is an online service for hosting git repositories.\n",
+  "HTML": "# HTML\n\nHTML is a markup language that can be used to define the structure of a web page. HTML elements include\n\n* headings\n* paragraphs\n* lists\n* links\n* and more!\n\nThe most recent major version of HTML is HTML5.",
+  "Python": "# Python\n\nPython is a programming language that can be used both for writing **command-line scripts** or building **web applications**.\n"
+}
